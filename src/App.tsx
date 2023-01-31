@@ -15,10 +15,10 @@ import plantSchedule from './PlantSchedule';
 function App() {
 	console.dir(plantData);
 
-	let PlantScheduleTableRows = (plantSchedule:PlantSchedule) => {
+	let PlantScheduleTableRows = (props:{plantSchedule:PlantSchedule}) => {
 		//group plant schedule by groupId
 		let scheduleGroups:PlantScheduleEntry[][] = [];
-		plantSchedule.forEach( (plantScheduleEntry:PlantScheduleEntry) => {
+		props.plantSchedule.forEach( (plantScheduleEntry:PlantScheduleEntry) => {
 			if( scheduleGroups[plantScheduleEntry.groupId] == null ) {
 				scheduleGroups[plantScheduleEntry.groupId] = [];
 			}
@@ -26,21 +26,23 @@ function App() {
 		});
 
 		return (
-			scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => (
-				scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
-					<tr key={'pse'+i}>
-						{(() => { 
-							if(i == 0) return (<td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td>)
-						})()}
-						<td>{plantScheduleEntry.plantId}</td>
-						<td>timeline for {plantScheduleEntry.plantId}</td>
-					</tr>
+			<>
+				{
+				scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => (
+					scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
+						<tr key={'pse'+i}>
+							{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
+							<td>{plantScheduleEntry.plantId}</td>
+							<td>timeline for {plantScheduleEntry.plantId}</td>
+						</tr>
+					))
 				))
-			))
+			}
+		</>
 		);
 	};
 
-	let PlantScheduleTable = (plantSchedule:PlantSchedule) => {
+	let PlantScheduleTable = (props:{plantSchedule:PlantSchedule}) => {
 		return (
 			<table>
 				<thead>
@@ -51,9 +53,7 @@ function App() {
 					</tr>
 				</thead>
 				<tbody>
-					{
-						PlantScheduleTableRows(plantSchedule)
-					}
+					<PlantScheduleTableRows plantSchedule={plantSchedule} />
 				</tbody>
 			</table>
 		)
@@ -63,9 +63,7 @@ function App() {
     <div className="App">
 			<h1>Garden Schedule Validator</h1>
 			<p>Create and validate garden schedules</p>
-			{
-				PlantScheduleTable(plantSchedule)
-			}
+				<PlantScheduleTable plantSchedule={plantSchedule} />
     </div>
   );
 }
