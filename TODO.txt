@@ -1,1 +1,7 @@
-+create basic functionality 
+-create basic functionality 
+
++convert number of plants to square feet (or add)
++add timeline graphic at top 
++add functionality to sum and display sq. ft. used over time (possibly highlight overages)
+	+add functionality to store max sq. ft. of each bed 
+
