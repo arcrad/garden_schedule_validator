@@ -16,6 +16,7 @@ type PlantScheduleEntry = {
 	plantId: string;
 	groupId: number;
 	numberOfPlants: number;	
+	notes?: string;
 };
 
 type PlantSchedule = PlantScheduleEntry[];

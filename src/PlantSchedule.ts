@@ -37,14 +37,23 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Chinese Broccoli',
 		groupId: 0,
-		numberOfPlants: 7
+		numberOfPlants: 7,
+		notes: 'Fall'
 	},
+	//add bok choy,
 	{
 		plantId: 'Lettuce, Head',
 		groupId: 0,
-		numberOfPlants: 30
+		numberOfPlants: 30,
+		notes: 'Fall'
 	},
-	//
+	{
+		plantId: 'Lettuce, Leaf',
+		groupId: 0,
+		numberOfPlants: 30,
+		notes: 'Fall'
+	},
+	/////
 	{
 		plantId: 'Peas, Garden',
 		groupId: 1,
