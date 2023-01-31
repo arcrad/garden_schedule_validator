@@ -102,7 +102,7 @@ function App() {
 					scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
 						<tr key={'pse'+i}>
 							{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
-							<td>{plantData[plantScheduleEntry.plantId].name + ' (' + plantScheduleEntry.plantId + ')'}</td>
+							<td>{plantData[plantScheduleEntry.plantId].name}<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
 							<td>
 								<PlantTimelineChart
 									plant={plantData[plantScheduleEntry.plantId]}
