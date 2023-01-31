@@ -10,10 +10,10 @@ type Plant = {
 	plantingPeriods: PlantingPeriod[]
 };
 
-type PlantData = Plant[];
+type PlantData = { [key:string]: Plant };
 
 type PlantScheduleEntry = {
-	plantId: number;
+	plantId: string;
 	groupId: number;
 	numberOfPlants: number;	
 };
