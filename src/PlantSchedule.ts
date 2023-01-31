@@ -5,27 +5,27 @@ import {
 
 const plantSchedule:PlantSchedule = [
 	{
-		plantId: 0,
+		plantId: 'Peas, Garden',
 		groupId: 0,
 		numberOfPlants: 24
 	},
 	{
-		plantId: 1,
+		plantId: 'Spinach',
 		groupId: 0,
 		numberOfPlants: 30
 	},
 	{
-		plantId: 0,
+		plantId: 'Beets',
 		groupId: 1,
 		numberOfPlants: 30
 	},
 	{
-		plantId: 2,
+		plantId: 'Spinach',
 		groupId: 2,
 		numberOfPlants: 10
 	},
 	{
-		plantId: 1,
+		plantId: 'Broccoli',
 		groupId: 2,
 		numberOfPlants: 12
 	},
