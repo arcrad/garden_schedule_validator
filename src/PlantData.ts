@@ -135,6 +135,23 @@ const plantData:PlantData = {
 				harvestEndDate: new Date(2000, 10, 15)
 			}
 		]
+	},
+	'Lettuce, Leaf': {
+		name: 'Lettuce, Leaf (uses Lettuce, Head)',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 2, 15),
+				plantEndDate: new Date(2000, 4, 15),
+				harvestStartDate: new Date(2000, 4, 5),
+				harvestEndDate: new Date(2000, 5, 25)
+			},
+			{
+				plantStartDate: new Date(2000, 7, 5),
+				plantEndDate: new Date(2000, 8, 25),
+				harvestStartDate: new Date(2000, 8, 15),
+				harvestEndDate: new Date(2000, 10, 15)
+			}
+		]
 	}
 };
 
