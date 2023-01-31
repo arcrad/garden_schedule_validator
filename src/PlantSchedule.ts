@@ -74,6 +74,17 @@ const plantSchedule:PlantSchedule = [
 		groupId: 1,
 		numberOfPlants: 2
 	},
+	/////
+	{
+		plantId: 'Peas, Garden',
+		groupId: 2,
+		numberOfPlants: 15
+	},
+	{
+		plantId: 'Malabar Spinach',
+		groupId: 2,
+		numberOfPlants: 3
+	},
 ];
 
 export default plantSchedule;
