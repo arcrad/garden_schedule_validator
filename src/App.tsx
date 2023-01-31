@@ -40,29 +40,29 @@ function PlantTimelineChart(
 		//draw all planting periods 
 		props.plant.plantingPeriods.forEach( (plantingPeriod:PlantingPeriod) => {
 			//draw planting period
-			let plantStartDay = daysIntoYear(plantingPeriod.plantStartDate);
-			let plantEndDay = daysIntoYear(plantingPeriod.plantEndDate);
+			const plantStartDay = daysIntoYear(plantingPeriod.plantStartDate);
+			const plantEndDay = daysIntoYear(plantingPeriod.plantEndDate);
 			//console.log(`plantStartDay=${plantStartDay}, plantEndDay=${plantEndDay}`);
-			let plantStartX = props.chartWidth*(plantStartDay/yearLengthDays);
-			let plantBarWidth = (props.chartWidth*(plantEndDay/yearLengthDays)) - plantStartX;
+			const plantStartX = props.chartWidth*(plantStartDay/yearLengthDays);
+			const plantBarWidth = (props.chartWidth*(plantEndDay/yearLengthDays)) - plantStartX;
 			if(chartContext != undefined) {
 				chartContext.fillStyle = '#0e0';
 				chartContext.fillRect(plantStartX, 0, plantBarWidth, props.chartHeight);
 			}
 			//draw harvest period
-			let harvestStartDay = daysIntoYear(plantingPeriod.harvestStartDate);
-			let harvestEndDay = daysIntoYear(plantingPeriod.harvestEndDate);
-			let harvestStartX = props.chartWidth*(harvestStartDay/yearLengthDays);
-			let harvestBarWidth = (props.chartWidth*(harvestEndDay/yearLengthDays)) - harvestStartX;
+			const harvestStartDay = daysIntoYear(plantingPeriod.harvestStartDate);
+			const harvestEndDay = daysIntoYear(plantingPeriod.harvestEndDate);
+			const harvestStartX = props.chartWidth*(harvestStartDay/yearLengthDays);
+			const harvestBarWidth = (props.chartWidth*(harvestEndDay/yearLengthDays)) - harvestStartX;
 			//console.log(`harvestStartDay=${harvestStartDay}, harvestEndDay=${harvestEndDay}`);
 			if(chartContext != undefined) {
-				chartContext.fillStyle = '#ee0';
+				chartContext.fillStyle = '#ed3';
 				chartContext.fillRect(harvestStartX, 0, harvestBarWidth, props.chartHeight);
 			}
 			//draw overlap period, if any 
 			if(plantEndDay > harvestStartDay) {
 				if(chartContext != undefined) {
-					let overlapBarWidth = harvestStartX - (props.chartWidth*(plantEndDay/yearLengthDays)) 
+					const overlapBarWidth = (props.chartWidth*(plantEndDay/yearLengthDays)) - harvestStartX;
 					chartContext.fillStyle = '#589';
 					chartContext.fillRect(harvestStartX, 0, overlapBarWidth, props.chartHeight);
 				}
