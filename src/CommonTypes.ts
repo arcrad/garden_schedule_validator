@@ -15,7 +15,7 @@ type PlantData = { [key:string]: Plant };
 type PlantScheduleEntry = {
 	plantId: string;
 	groupId: number;
-	numberOfPlants: number;	
+	squareFeetPlanted: number;	
 	notes?: string;
 };
 

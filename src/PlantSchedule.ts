@@ -7,83 +7,83 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Peas, Garden',
 		groupId: 0,
-		numberOfPlants: 15
+		squareFeetPlanted: 15
 	},
 	{
 		plantId: 'Spinach',
 		groupId: 0,
-		numberOfPlants: 24
+		squareFeetPlanted: 24
 	},
 	{
 		plantId: 'Beets',
 		groupId: 0,
-		numberOfPlants: 6
+		squareFeetPlanted: 6
 	},
 	{
 		plantId: 'Cucumbers',
 		groupId: 0,
-		numberOfPlants: 5
+		squareFeetPlanted: 5
 	},
 	{
 		plantId: 'Cucamelon',
 		groupId: 0,
-		numberOfPlants: 4
+		squareFeetPlanted: 4
 	},
 	{
 		plantId: 'Malabar Spinach',
 		groupId: 0,
-		numberOfPlants: 6
+		squareFeetPlanted: 6
 	},
 	{
 		plantId: 'Chinese Broccoli',
 		groupId: 0,
-		numberOfPlants: 7,
+		squareFeetPlanted: 7,
 		notes: 'Fall'
 	},
 	//add bok choy,
 	{
 		plantId: 'Lettuce, Head',
 		groupId: 0,
-		numberOfPlants: 30,
+		squareFeetPlanted: 30,
 		notes: 'Fall'
 	},
 	{
 		plantId: 'Lettuce, Leaf',
 		groupId: 0,
-		numberOfPlants: 30,
+		squareFeetPlanted: 30,
 		notes: 'Fall'
 	},
 	/////
 	{
 		plantId: 'Peas, Garden',
 		groupId: 1,
-		numberOfPlants: 15
+		squareFeetPlanted: 15
 	},
 	{
 		plantId: 'Chinese Broccoli',
 		groupId: 1,
-		numberOfPlants: 7
+		squareFeetPlanted: 7
 	},
 	{
 		plantId: 'Lettuce, Head',
 		groupId: 1,
-		numberOfPlants: 4
+		squareFeetPlanted: 4
 	},
 	{
 		plantId: 'Lettuce, Leaf', //will be leaf
 		groupId: 1,
-		numberOfPlants: 2
+		squareFeetPlanted: 2
 	},
 	/////
 	{
 		plantId: 'Peas, Garden',
 		groupId: 2,
-		numberOfPlants: 15
+		squareFeetPlanted: 15
 	},
 	{
 		plantId: 'Malabar Spinach',
 		groupId: 2,
-		numberOfPlants: 3
+		squareFeetPlanted: 3
 	},
 ];
 
