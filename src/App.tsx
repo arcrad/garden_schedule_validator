@@ -17,6 +17,79 @@ function daysIntoYear(date:Date){
     return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
 }
 
+
+function drawTimeAxisMarkersOnCanvas(
+	context:CanvasRenderingContext2D,
+	axisWidth: number,
+	axisHeight: number,
+	yearLengthDays: number,
+	showLabels: boolean,
+	markerColor: string
+) {
+	//draw time axis markers 
+	let curDate = new Date(2000,0,1);
+	let monthLabels = ['J','F','M','A','M','J','J','A','S','O','N','D','J'];
+	let curXPosition = 0;
+	for(let x = 0; x < 13; x++) {
+			console.log(curDate);
+		let xOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
+		console.log(`xOffset = ${xOffset}`);
+		if(context != null) {
+			curXPosition += xOffset;
+			context.strokeStyle = markerColor;
+			context.beginPath();
+			context.moveTo(xOffset, 0);
+			context.lineTo(xOffset, axisHeight);
+			context.stroke();
+			//increment date by 1 month
+			curDate.setMonth(curDate.getMonth()+1);
+			//draw label for previous month
+			if(showLabels && x < 12) {
+				let nextMonthXOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
+				const textXPos = ( x == 11 ? (xOffset+axisWidth)/2 : (xOffset+nextMonthXOffset)/2) - 6;
+				const textYPos = (axisHeight/2) + 4;
+				console.log(`textXPos=${textXPos}, textYPos=${textYPos}`);
+				context.fillStyle = '#000';
+				context.font = '12px sans';
+				context.fillText(monthLabels[x], textXPos, textYPos);
+			}
+		}
+	}
+}
+function PlantTimelineAxis(
+	props: {
+		axisWidth: number;
+		axisHeight: number;
+	}
+) {
+	let chartRef = useRef<HTMLCanvasElement>(null);
+	useEffect( () => {
+		if(chartRef.current == undefined) {
+			return;
+		}
+		const yearLengthDays = 365;
+		//console.log('use effect');
+		let chartContext = chartRef.current.getContext('2d');
+		if(chartContext != undefined) {
+			//draw background fill
+			chartContext.fillStyle = '#efe';
+			chartContext.fillRect(0, 0, props.axisWidth, props.axisHeight);
+			drawTimeAxisMarkersOnCanvas(chartContext, props.axisWidth, props.axisHeight, yearLengthDays, true, '#000');
+		}
+	}, [chartRef]);
+	return (
+		<canvas
+			ref={chartRef} 
+			width={props.axisWidth} 
+			height={props.axisHeight}
+			style={{
+				border: '1px solid #f00'
+			}}
+		>
+		</canvas>
+	)
+}
+
 function PlantTimelineChart(
 	props:{
 		plant:Plant;
@@ -68,6 +141,9 @@ function PlantTimelineChart(
 				}
 			}
 		});
+		if(chartContext != undefined) {
+			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, yearLengthDays, false, '#999');
+		}
 		//console.dir(chartContext);
 	}, [chartRef]);
 	return (
@@ -132,6 +208,11 @@ function PlantScheduleTable(props:{
 				</tr>
 			</thead>
 			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><PlantTimelineAxis axisWidth={500} axisHeight={30}/></td>
+				</tr>
 				<PlantScheduleTableRows plantSchedule={props.plantSchedule} plantData={props.plantData}/>
 			</tbody>
 		</table>
