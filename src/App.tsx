@@ -56,30 +56,31 @@ function drawTimeAxisMarkersOnCanvas(
 		}
 	}
 }
+
 function PlantTimelineAxis(
 	props: {
 		axisWidth: number;
 		axisHeight: number;
 	}
 ) {
-	let chartRef = useRef<HTMLCanvasElement>(null);
+	let axisRef = useRef<HTMLCanvasElement>(null);
 	useEffect( () => {
-		if(chartRef.current == undefined) {
+		if(axisRef.current == undefined) {
 			return;
 		}
 		const yearLengthDays = 365;
 		//console.log('use effect');
-		let chartContext = chartRef.current.getContext('2d');
-		if(chartContext != undefined) {
+		let axisContext = axisRef.current.getContext('2d');
+		if(axisContext != undefined) {
 			//draw background fill
-			chartContext.fillStyle = '#efe';
-			chartContext.fillRect(0, 0, props.axisWidth, props.axisHeight);
-			drawTimeAxisMarkersOnCanvas(chartContext, props.axisWidth, props.axisHeight, yearLengthDays, true, '#000');
+			axisContext.fillStyle = '#efe';
+			axisContext.fillRect(0, 0, props.axisWidth, props.axisHeight);
+			drawTimeAxisMarkersOnCanvas(axisContext, props.axisWidth, props.axisHeight, yearLengthDays, true, '#000');
 		}
-	}, [chartRef]);
+	}, [axisRef]);
 	return (
 		<canvas
-			ref={chartRef} 
+			ref={axisRef} 
 			width={props.axisWidth} 
 			height={props.axisHeight}
 			style={{
