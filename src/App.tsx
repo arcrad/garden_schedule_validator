@@ -24,16 +24,20 @@ function drawTimeAxisMarkersOnCanvas(
 	axisHeight: number,
 	yearLengthDays: number,
 	showLabels: boolean,
-	markerColor: string
+	markerColor: string,
+	customLabels?: string[]
 ) {
 	//draw time axis markers 
 	let curDate = new Date(2000,0,1);
 	let monthLabels = ['J','F','M','A','M','J','J','A','S','O','N','D','J'];
+	if(customLabels != undefined) {
+		monthLabels = customLabels;
+	}
 	let curXPosition = 0;
 	for(let x = 0; x < 13; x++) {
-			console.log(curDate);
+		//console.log(curDate);
 		let xOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
-		console.log(`xOffset = ${xOffset}`);
+		//console.log(`xOffset = ${xOffset}`);
 		if(context != null) {
 			curXPosition += xOffset;
 			context.strokeStyle = markerColor;
@@ -48,7 +52,7 @@ function drawTimeAxisMarkersOnCanvas(
 				let nextMonthXOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
 				const textXPos = ( x == 11 ? (xOffset+axisWidth)/2 : (xOffset+nextMonthXOffset)/2) - 6;
 				const textYPos = (axisHeight/2) + 4;
-				console.log(`textXPos=${textXPos}, textYPos=${textYPos}`);
+				//console.log(`textXPos=${textXPos}, textYPos=${textYPos}`);
 				context.fillStyle = '#000';
 				context.font = '12px sans';
 				context.fillText(monthLabels[x], textXPos, textYPos);
@@ -93,7 +97,9 @@ function PlantTimelineAxis(
 
 function SquareFeetUsedPerMonthChart(
 	props: {
-		plant:Plant;
+		plantSchedule:PlantSchedule;
+		plantData:PlantData;
+		groupToShow: number;
 		chartWidth: number;
 		chartHeight: number;
 	}
@@ -110,6 +116,29 @@ function SquareFeetUsedPerMonthChart(
 			//draw background fill
 			chartContext.fillStyle = '#efe';
 			chartContext.fillRect(0, 0, props.chartWidth, props.chartHeight);
+			const daysPerMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+			const plantsInGroup = plantSchedule.filter( (plant) => plant.groupId == props.groupToShow);
+			let squareFeetPerMonth = [0,0,0,0,0,0,0,0,0,0,0,0];
+			squareFeetPerMonth = squareFeetPerMonth.map( (monthTotal, monthIndex) => {
+				let totalSqFtCurrentMonth = plantsInGroup.reduce( (total, currentPlant) => {
+					return total + props.plantData[currentPlant.plantId].plantingPeriods.reduce( (total, currentPlantingPeriod) => {
+						//let plantActiveStartDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantStartDate;
+						//let plantActiveEndDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantEndDate;
+						let plantActiveStartDate = currentPlantingPeriod.plantStartDate;
+						let plantActiveEndDate = currentPlantingPeriod.plantEndDate;
+						if(plantActiveStartDate.getMonth() <= monthIndex && plantActiveEndDate.getMonth() >= monthIndex) {
+							return total + currentPlant.squareFeetPlanted;
+						} else {
+							return total;
+						}
+					}, 0);	
+				}, 0);
+				return totalSqFtCurrentMonth;
+			});
+			//console.dir(plantsInGroup);
+			let customLabels = squareFeetPerMonth.map( val => String(val));
+			console.dir(customLabels);
+			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, yearLengthDays, true, '#999', customLabels);
 		}
 	}, [chartRef]);
 	return (
@@ -118,7 +147,7 @@ function SquareFeetUsedPerMonthChart(
 			width={props.chartWidth} 
 			height={props.chartHeight}
 			style={{
-				border: '1px solid #f00'
+				border: '1px solid #999'
 			}}
 		>
 		</canvas>
@@ -209,11 +238,28 @@ function PlantScheduleTableRows(props:{
 	return (
 		<>
 			{
-			scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => (
-				scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
+			scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => {
+					return (
+					<>
+					<tr key={'sqpm'+i}>
+						<td></td>
+						<td>Total Sq. Ft. Used per Month for Group {i}</td>
+						<td>
+							<SquareFeetUsedPerMonthChart 
+								plantSchedule = {props.plantSchedule}
+								plantData = {props.plantData}
+								groupToShow = {i}
+								chartWidth = {500}
+								chartHeight = {20}
+							/>
+						</td>
+					</tr>
+				{
+				scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => {
+				return (
 					<tr key={'pse'+i}>
 						{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
-						<td>{props.plantData[plantScheduleEntry.plantId].name}<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
+						<td>{props.plantData[plantScheduleEntry.plantId].name} ({plantScheduleEntry.squareFeetPlanted})<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
 						<td>
 							<PlantTimelineChart
 								plant={props.plantData[plantScheduleEntry.plantId]}
@@ -222,8 +268,12 @@ function PlantScheduleTableRows(props:{
 							/>
 						</td>
 					</tr>
-				))
-			))
+				)}
+				)
+				}
+				</>
+				);
+			})
 		}
 	</>
 	);

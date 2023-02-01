@@ -36,53 +36,53 @@ const plantSchedule:PlantSchedule = [
 	},
 	{
 		plantId: 'Chinese Broccoli',
-		groupId: 0,
+		groupId: 1,
 		squareFeetPlanted: 7,
 		notes: 'Fall'
 	},
 	//add bok choy,
 	{
 		plantId: 'Lettuce, Head',
-		groupId: 0,
+		groupId: 1,
 		squareFeetPlanted: 30,
 		notes: 'Fall'
 	},
 	{
 		plantId: 'Lettuce, Leaf',
-		groupId: 0,
+		groupId: 1,
 		squareFeetPlanted: 30,
 		notes: 'Fall'
 	},
 	/////
 	{
 		plantId: 'Peas, Garden',
-		groupId: 1,
+		groupId: 2,
 		squareFeetPlanted: 15
 	},
 	{
 		plantId: 'Chinese Broccoli',
-		groupId: 1,
+		groupId: 2,
 		squareFeetPlanted: 7
 	},
 	{
 		plantId: 'Lettuce, Head',
-		groupId: 1,
+		groupId: 2,
 		squareFeetPlanted: 4
 	},
 	{
 		plantId: 'Lettuce, Leaf', //will be leaf
-		groupId: 1,
+		groupId: 2,
 		squareFeetPlanted: 2
 	},
 	/////
 	{
 		plantId: 'Peas, Garden',
-		groupId: 2,
+		groupId: 3,
 		squareFeetPlanted: 15
 	},
 	{
 		plantId: 'Malabar Spinach',
-		groupId: 2,
+		groupId: 3,
 		squareFeetPlanted: 3
 	},
 ];
