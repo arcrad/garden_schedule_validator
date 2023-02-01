@@ -50,8 +50,8 @@ function drawTimeAxisMarkersOnCanvas(
 			//draw label for previous month
 			if(showLabels && x < 12) {
 				let nextMonthXOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
-				const textXPos = ( x == 11 ? (xOffset+axisWidth)/2 : (xOffset+nextMonthXOffset)/2) - 6;
-				const textYPos = (axisHeight/2) + 4;
+				const textXPos = ( x == 11 ? (xOffset+axisWidth)/2 : (xOffset+nextMonthXOffset)/2) - 3;
+				const textYPos = (axisHeight/2) + 4.5;
 				//console.log(`textXPos=${textXPos}, textYPos=${textYPos}`);
 				context.fillStyle = '#000';
 				context.font = '12px sans';
@@ -242,8 +242,7 @@ function PlantScheduleTableRows(props:{
 					return (
 					<>
 					<tr key={'sqpm'+i}>
-						<td></td>
-						<td>Total Sq. Ft. Used per Month for Group {i}</td>
+						<td colSpan={2}>Total Sq. Ft. Used per Month for Group {i}</td>
 						<td>
 							<SquareFeetUsedPerMonthChart 
 								plantSchedule = {props.plantSchedule}
@@ -294,8 +293,7 @@ function PlantScheduleTable(props:{
 			</thead>
 			<tbody>
 				<tr>
-					<td></td>
-					<td></td>
+					<td colSpan={2}>Months</td>
 					<td><PlantTimelineAxis axisWidth={500} axisHeight={30}/></td>
 				</tr>
 				<PlantScheduleTableRows plantSchedule={props.plantSchedule} plantData={props.plantData}/>
