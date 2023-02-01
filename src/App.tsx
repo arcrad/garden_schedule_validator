@@ -83,63 +83,69 @@ function PlantTimelineChart(
 	)
 }
 	
+function PlantScheduleTableRows(props:{
+	plantSchedule:PlantSchedule;
+	plantData:PlantData;
+}) {
+	//group plant schedule by groupId
+	let scheduleGroups:PlantScheduleEntry[][] = [];
+	props.plantSchedule.forEach( (plantScheduleEntry:PlantScheduleEntry) => {
+		if( scheduleGroups[plantScheduleEntry.groupId] == null ) {
+			scheduleGroups[plantScheduleEntry.groupId] = [];
+		}
+		scheduleGroups[plantScheduleEntry.groupId].push(plantScheduleEntry);
+	});
+	return (
+		<>
+			{
+			scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => (
+				scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
+					<tr key={'pse'+i}>
+						{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
+						<td>{props.plantData[plantScheduleEntry.plantId].name}<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
+						<td>
+							<PlantTimelineChart
+								plant={props.plantData[plantScheduleEntry.plantId]}
+								chartWidth={500}
+								chartHeight={30}
+							/>
+						</td>
+					</tr>
+				))
+			))
+		}
+	</>
+	);
+}
+
+function PlantScheduleTable(props:{
+	plantSchedule:PlantSchedule;
+	plantData:PlantData;
+}) {
+	return (
+		<table>
+			<thead>
+				<tr>
+					<th>Group</th>
+					<th>Plant Name</th>
+					<th>Timeline</th>
+				</tr>
+			</thead>
+			<tbody>
+				<PlantScheduleTableRows plantSchedule={props.plantSchedule} plantData={props.plantData}/>
+			</tbody>
+		</table>
+	)
+};
+
 function App() {
 	console.dir(plantData);
 
-	let PlantScheduleTableRows = (props:{plantSchedule:PlantSchedule}) => {
-		//group plant schedule by groupId
-		let scheduleGroups:PlantScheduleEntry[][] = [];
-		props.plantSchedule.forEach( (plantScheduleEntry:PlantScheduleEntry) => {
-			if( scheduleGroups[plantScheduleEntry.groupId] == null ) {
-				scheduleGroups[plantScheduleEntry.groupId] = [];
-			}
-			scheduleGroups[plantScheduleEntry.groupId].push(plantScheduleEntry);
-		});
-		return (
-			<>
-				{
-				scheduleGroups.map((scheduleGroup:PlantScheduleEntry[], i:number) => (
-					scheduleGroup.map( (plantScheduleEntry:PlantScheduleEntry, i:number, allSchedulesInGroup:PlantScheduleEntry[]) => (
-						<tr key={'pse'+i}>
-							{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
-							<td>{plantData[plantScheduleEntry.plantId].name}<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
-							<td>
-								<PlantTimelineChart
-									plant={plantData[plantScheduleEntry.plantId]}
-									chartWidth={500}
-									chartHeight={30}
-								/>
-							</td>
-						</tr>
-					))
-				))
-			}
-		</>
-		);
-	};
-
-	let PlantScheduleTable = (props:{plantSchedule:PlantSchedule}) => {
-		return (
-			<table>
-				<thead>
-					<tr>
-						<th>Group</th>
-						<th>Plant Name</th>
-						<th>Timeline</th>
-					</tr>
-				</thead>
-				<tbody>
-					<PlantScheduleTableRows plantSchedule={plantSchedule} />
-				</tbody>
-			</table>
-		)
-	};
-	
   return (
     <div className="App">
 			<h1>Garden Schedule Validator</h1>
 			<p>Create and validate garden schedules</p>
-				<PlantScheduleTable plantSchedule={plantSchedule} />
+				<PlantScheduleTable plantSchedule={plantSchedule} plantData={plantData}/>
     </div>
   );
 }
