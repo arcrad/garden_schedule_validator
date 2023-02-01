@@ -84,6 +84,40 @@ function PlantTimelineAxis(
 			width={props.axisWidth} 
 			height={props.axisHeight}
 			style={{
+				border: '1px solid #000'
+			}}
+		>
+		</canvas>
+	)
+}
+
+function SquareFeetUsedPerMonthChart(
+	props: {
+		plant:Plant;
+		chartWidth: number;
+		chartHeight: number;
+	}
+) {
+	let chartRef = useRef<HTMLCanvasElement>(null);
+	useEffect( () => {
+		if(chartRef.current == undefined) {
+			return;
+		}
+		const yearLengthDays = 365;
+		//console.log('use effect');
+		let chartContext = chartRef.current.getContext('2d');
+		if(chartContext != undefined) {
+			//draw background fill
+			chartContext.fillStyle = '#efe';
+			chartContext.fillRect(0, 0, props.chartWidth, props.chartHeight);
+		}
+	}, [chartRef]);
+	return (
+		<canvas
+			ref={chartRef} 
+			width={props.chartWidth} 
+			height={props.chartHeight}
+			style={{
 				border: '1px solid #f00'
 			}}
 		>
