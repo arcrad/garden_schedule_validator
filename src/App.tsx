@@ -125,7 +125,7 @@ function SquareFeetUsedPerMonthChart(
 						//let plantActiveStartDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantStartDate;
 						//let plantActiveEndDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantEndDate;
 						let plantActiveStartDate = currentPlantingPeriod.plantStartDate;
-						let plantActiveEndDate = currentPlantingPeriod.plantEndDate;
+						let plantActiveEndDate = currentPlantingPeriod.harvestEndDate;
 						if(plantActiveStartDate.getMonth() <= monthIndex && plantActiveEndDate.getMonth() >= monthIndex) {
 							return total + currentPlant.squareFeetPlanted;
 						} else {
