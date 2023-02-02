@@ -12,6 +12,14 @@ import {
 import plantData from './PlantData';
 import plantSchedule from './PlantSchedule';
 
+import drawTimeAxisMarkersOnCanvas from './components/drawTimeAxisMarkersOnCanvas';
+import PlantScheduleTableRows from './components/PlantScheduleTableRows';
+import PlantScheduleTable from './components/PlantScheduleTable';
+import PlantTimelineAxis from './components/PlantTimelineAxis';
+import PlantTimelineChart from './components/PlantTimelineChart';
+import SquareFeetUsedPerMonthChart from './components/SquareFeetUsedPerMonthChart';
+
+/*
 //stolen from stackoverflow, need to vet properly 
 function daysIntoYear(date:Date){
     return (Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) - Date.UTC(date.getFullYear(), 0, 0)) / 24 / 60 / 60 / 1000;
@@ -60,7 +68,9 @@ function drawTimeAxisMarkersOnCanvas(
 		}
 	}
 }
+*/
 
+/*
 function PlantTimelineAxis(
 	props: {
 		axisWidth: number;
@@ -301,6 +311,7 @@ function PlantScheduleTable(props:{
 		</table>
 	)
 };
+*/
 
 function App() {
 	console.dir(plantData);
