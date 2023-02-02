@@ -40,17 +40,22 @@ const plantSchedule:PlantSchedule = [
 		squareFeetPlanted: 7,
 		notes: 'Fall'
 	},
-	//add bok choy,
+	{
+		plantId: 'Bok Choy',
+		groupId: 1,
+		squareFeetPlanted: 4,
+		notes: 'Fall'
+	},
 	{
 		plantId: 'Lettuce, Head',
 		groupId: 1,
-		squareFeetPlanted: 30,
+		squareFeetPlanted: 6,
 		notes: 'Fall'
 	},
 	{
 		plantId: 'Lettuce, Leaf',
 		groupId: 1,
-		squareFeetPlanted: 30,
+		squareFeetPlanted: 6,
 		notes: 'Fall'
 	},
 	/////
@@ -65,6 +70,31 @@ const plantSchedule:PlantSchedule = [
 		squareFeetPlanted: 7
 	},
 	{
+		plantId: 'Kohlrabi',
+		groupId: 2,
+		squareFeetPlanted: 6
+	},
+	{
+		plantId: 'Butternut Squash',
+		groupId: 2,
+		squareFeetPlanted: 8
+	},
+	{
+		plantId: 'Peanut',
+		groupId: 2,
+		squareFeetPlanted: 25
+	},
+	{
+		plantId: 'Daikon',
+		groupId: 2,
+		squareFeetPlanted: 12
+	},
+	{
+		plantId: 'Collards',
+		groupId: 2,
+		squareFeetPlanted: 7
+	},
+	{
 		plantId: 'Lettuce, Head',
 		groupId: 2,
 		squareFeetPlanted: 4
@@ -74,6 +104,11 @@ const plantSchedule:PlantSchedule = [
 		groupId: 2,
 		squareFeetPlanted: 2
 	},
+	{
+		plantId: 'Swiss Chard',
+		groupId: 2,
+		squareFeetPlanted: 4
+	},
 	/////
 	{
 		plantId: 'Peas, Garden',
@@ -81,9 +116,39 @@ const plantSchedule:PlantSchedule = [
 		squareFeetPlanted: 15
 	},
 	{
+		plantId: 'Tatsoi',
+		groupId: 3,
+		squareFeetPlanted: 24
+	},
+	{
+		plantId: 'Bok Choy',
+		groupId: 3,
+		squareFeetPlanted: 6
+	},
+	{
+		plantId: 'Curshaw Squash',
+		groupId: 3,
+		squareFeetPlanted: 8
+	},
+	{
+		plantId: 'Eggplant',
+		groupId: 3,
+		squareFeetPlanted: 10
+	},
+	{
+		plantId: 'Lemon Pepper',
+		groupId: 3,
+		squareFeetPlanted: 10
+	},
+	{
 		plantId: 'Malabar Spinach',
 		groupId: 3,
 		squareFeetPlanted: 3
+	},
+	{
+		plantId: 'Rutabega',
+		groupId: 3,
+		squareFeetPlanted: 15
 	},
 ];
 
