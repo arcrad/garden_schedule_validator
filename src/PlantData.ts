@@ -96,14 +96,131 @@ const plantData:PlantData = {
 			}
 		]
 	},
-	'Lemon Pepper': {
-		name: 'Lemon Pepper (uses Peppers)',
+	'Brussels Sprouts': {
+		name: 'Brussels Sprouts',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 6, 25),
+				plantEndDate: new Date(2000, 7, 15),
+				harvestStartDate: new Date(2000, 9, 25),
+				harvestEndDate: new Date(2000, 11, 5)
+			}
+		]
+	},
+	'Pole Beans': {
+		name: 'Pole Beans',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 15),
+				plantEndDate: new Date(2000, 6, 15),
+				harvestStartDate: new Date(2000, 5, 15),
+				harvestEndDate: new Date(2000, 9, 25)
+			}
+		]
+	},
+	'Bush Beans': {
+		name: 'Bush Beans',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 15),
+				plantEndDate: new Date(2000, 7, 5),
+				harvestStartDate: new Date(2000, 5, 5),
+				harvestEndDate: new Date(2000, 9, 25)
+			}
+		]
+	},
+	'Lima Beans': {
+		name: 'Lima Beans',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 25),
+				plantEndDate: new Date(2000, 6, 25),
+				harvestStartDate: new Date(2000, 6, 15),
+				harvestEndDate: new Date(2000, 9, 25)
+			}
+		]
+	},
+	'Ground Cherries': {
+		name: 'Ground Cherries',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 25),
+				plantEndDate: new Date(2000, 5, 25),
+				harvestStartDate: new Date(2000, 6, 5),
+				harvestEndDate: new Date(2000, 8, 5)
+			}
+		]
+	},
+	'Carrots': {
+		name: 'Carrots',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 2, 5),
+				plantEndDate: new Date(2000, 3, 25),
+				harvestStartDate: new Date(2000, 4, 5),
+				harvestEndDate: new Date(2000, 6, 15)
+			},
+			{
+				plantStartDate: new Date(2000, 6, 15),
+				plantEndDate: new Date(2000, 7, 25),
+				harvestStartDate: new Date(2000, 8, 25),
+				harvestEndDate: new Date(2000, 11, 31)
+			}
+		]
+	},
+	'Peppers': {
+		name: 'Peppers',
 		plantingPeriods: [
 			{
 				plantStartDate: new Date(2000, 3, 15),
 				plantEndDate: new Date(2000, 6, 25),
 				harvestStartDate: new Date(2000, 5, 25),
 				harvestEndDate: new Date(2000, 10, 5)
+			}
+		]
+	},
+	'Chinese Cabbage': {
+		name: 'Chinese Cabbage',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 2, 15),
+				plantEndDate: new Date(2000, 4, 5),
+				harvestStartDate: new Date(2000, 4, 25),
+				harvestEndDate: new Date(2000, 6, 5)
+			},
+			{
+				plantStartDate: new Date(2000, 6, 25),
+				plantEndDate: new Date(2000, 8, 5),
+				harvestStartDate: new Date(2000, 9, 5),
+				harvestEndDate: new Date(2000, 10, 25)
+			}
+		]
+	},
+	'Cabbage': {
+		name: 'Cabbage',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 2, 15),
+				plantEndDate: new Date(2000, 4, 5),
+				harvestStartDate: new Date(2000, 4, 5),
+				harvestEndDate: new Date(2000, 6, 5)
+			},
+			{
+				plantStartDate: new Date(2000, 6, 25),
+				plantEndDate: new Date(2000, 8, 5),
+				harvestStartDate: new Date(2000, 9, 5),
+				harvestEndDate: new Date(2000, 10, 25)
+			}
+		]
+	},
+	'Tomatoes': {
+		name: 'Tomatoes',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 4, 15),
+				plantEndDate: new Date(2000, 6, 25),
+				harvestStartDate: new Date(2000, 5, 15),
+				harvestEndDate: new Date(2000, 9, 25)
 			}
 		]
 	},
@@ -118,8 +235,8 @@ const plantData:PlantData = {
 			}
 		]
 	},
-	'Butternut Squash': {
-		name: 'Butternut Squash (uses Winter Squash)',
+	'Winter Squash': {
+		name: 'Winter Squash',
 		plantingPeriods: [
 			{
 				plantStartDate: new Date(2000, 3, 15),
@@ -129,11 +246,11 @@ const plantData:PlantData = {
 			}
 		]
 	},
-	'Curshaw Squash': {
-		name: 'Curshaw Squash (uses Winter Squash)',
+	'Watermelon': {
+		name: 'Watermelon',
 		plantingPeriods: [
 			{
-				plantStartDate: new Date(2000, 3, 15),
+				plantStartDate: new Date(2000, 4, 25),
 				plantEndDate: new Date(2000, 6, 15),
 				harvestStartDate: new Date(2000, 6, 5),
 				harvestEndDate: new Date(2000, 9, 25)
@@ -148,6 +265,28 @@ const plantData:PlantData = {
 				plantEndDate: new Date(2000, 8, 1),
 				harvestStartDate: new Date(2000, 8, 15),
 				harvestEndDate: new Date(2000, 10, 10)
+			}
+		]
+	},
+	'Pumpkins': {
+		name: 'Pumpkins',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 25),
+				plantEndDate: new Date(2000, 6, 5),
+				harvestStartDate: new Date(2000, 6, 15),
+				harvestEndDate: new Date(2000, 10, 5)
+			}
+		]
+	},
+	'Sweet Potato': {
+		name: 'Sweet Potato',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 25),
+				plantEndDate: new Date(2000, 6, 15),
+				harvestStartDate: new Date(2000, 7, 15),
+				harvestEndDate: new Date(2000, 9, 25)
 			}
 		]
 	},
@@ -219,6 +358,40 @@ const plantData:PlantData = {
 			}
 		]
 	},
+	'Mustard': {
+		name: 'Mustard',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 1, 25),
+				plantEndDate: new Date(2000, 3, 25),
+				harvestStartDate: new Date(2000, 3, 5),
+				harvestEndDate: new Date(2000, 5, 15)
+			},
+			{
+				plantStartDate: new Date(2000, 7, 5),
+				plantEndDate: new Date(2000, 9, 5),
+				harvestStartDate: new Date(2000, 8, 15),
+				harvestEndDate: new Date(2000, 10, 25)
+			}
+		]
+	},
+	'Cauliflower': {
+		name: 'Cauliflower',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 2, 15),
+				plantEndDate: new Date(2000, 3, 15),
+				harvestStartDate: new Date(2000, 4, 25),
+				harvestEndDate: new Date(2000, 5, 25)
+			},
+			{
+				plantStartDate: new Date(2000, 6, 25),
+				plantEndDate: new Date(2000, 7, 25),
+				harvestStartDate: new Date(2000, 9, 5),
+				harvestEndDate: new Date(2000, 10, 25)
+			}
+		]
+	},
 	'Peanut': {
 		name: 'Peanut (from Google)',
 		plantingPeriods: [
@@ -230,8 +403,30 @@ const plantData:PlantData = {
 			}
 		]
 	},
-	'Daikon': {
-		name: 'Daikon (uses Radish)',
+	'Summer Squash': {
+		name: 'Summer Squash',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 15),
+				plantEndDate: new Date(2000, 7, 25),
+				harvestStartDate: new Date(2000, 4, 25),
+				harvestEndDate: new Date(2000, 9, 25)
+			}
+		]
+	},
+	'Okra': {
+		name: 'Okra',
+		plantingPeriods: [
+			{
+				plantStartDate: new Date(2000, 3, 25),
+				plantEndDate: new Date(2000, 6, 25),
+				harvestStartDate: new Date(2000, 6, 15),
+				harvestEndDate: new Date(2000, 9, 25)
+			}
+		]
+	},
+	'Radish': {
+		name: 'Radish',
 		plantingPeriods: [
 			{
 				plantStartDate: new Date(2000, 1, 25),
