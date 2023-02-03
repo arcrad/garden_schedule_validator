@@ -17,6 +17,7 @@ type PlantScheduleEntry = {
 	groupId: number;
 	squareFeetPlanted: number;	
 	notes?: string;
+	activePeriods?: (number[]|undefined);
 };
 
 type PlantSchedule = PlantScheduleEntry[];

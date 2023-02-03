@@ -49,6 +49,7 @@ export default function PlantScheduleTableRows(props:{
 						<td>
 							<PlantTimelineChart
 								plant={props.plantData[plantScheduleEntry.plantId]}
+								plantScheduleEntry={plantScheduleEntry}
 								chartWidth={500}
 								chartHeight={30}
 							/>

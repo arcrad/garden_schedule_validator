@@ -35,7 +35,11 @@ export default function SquareFeetUsedPerMonthChart(
 			let squareFeetPerMonth = [0,0,0,0,0,0,0,0,0,0,0,0];
 			squareFeetPerMonth = squareFeetPerMonth.map( (monthTotal, monthIndex) => {
 				let totalSqFtCurrentMonth = plantsInGroup.reduce( (total, currentPlant) => {
-					return total + props.plantData[currentPlant.plantId].plantingPeriods.reduce( (total, currentPlantingPeriod) => {
+					return total + props.plantData[currentPlant.plantId].plantingPeriods.reduce( (total, currentPlantingPeriod, i) => {
+						if(currentPlant.activePeriods && !currentPlant.activePeriods.includes(i)) {
+							//skip
+							return total;
+						}
 						//let plantActiveStartDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantStartDate;
 						//let plantActiveEndDate = props.plantData[currentPlant.plantId].plantingPeriods[0].plantEndDate;
 						let plantActiveStartDate = currentPlantingPeriod.plantStartDate;

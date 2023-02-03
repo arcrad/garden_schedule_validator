@@ -13,6 +13,7 @@ import drawTimeAxisMarkersOnCanvas from './drawTimeAxisMarkersOnCanvas';
 export default function PlantTimelineChart(
 	props:{
 		plant:Plant;
+		plantScheduleEntry:PlantScheduleEntry;
 		chartWidth: number;
 		chartHeight: number;
 	}
@@ -31,7 +32,11 @@ export default function PlantTimelineChart(
 			chartContext.fillRect(0, 0, props.chartWidth, props.chartHeight);
 		}
 		//draw all planting periods 
-		props.plant.plantingPeriods.forEach( (plantingPeriod:PlantingPeriod) => {
+		props.plant.plantingPeriods.forEach( (plantingPeriod:PlantingPeriod, i:number) => {
+			if(props.plantScheduleEntry.activePeriods && !props.plantScheduleEntry.activePeriods.includes(i)) {
+				//skip
+				return;
+			}
 			//draw planting period
 			const plantStartDay = daysIntoYear(plantingPeriod.plantStartDate);
 			const plantEndDay = daysIntoYear(plantingPeriod.plantEndDate);
