@@ -1,10 +1,10 @@
 import { daysIntoYear } from '../Utility';
+import * as GC from '../GlobalConstants';
 
 export default function drawTimeAxisMarkersOnCanvas(
 	context:CanvasRenderingContext2D,
 	axisWidth: number,
 	axisHeight: number,
-	yearLengthDays: number,
 	showLabels: boolean,
 	markerColor: string,
 	customLabels?: string[]
@@ -18,7 +18,7 @@ export default function drawTimeAxisMarkersOnCanvas(
 	let curXPosition = 0;
 	for(let x = 0; x < 13; x++) {
 		//console.log(curDate);
-		let xOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
+		let xOffset = axisWidth*(daysIntoYear(curDate)/GC.yearLengthDays);
 		//console.log(`xOffset = ${xOffset}`);
 		if(context != null) {
 			curXPosition += xOffset;
@@ -31,7 +31,7 @@ export default function drawTimeAxisMarkersOnCanvas(
 			curDate.setMonth(curDate.getMonth()+1);
 			//draw label for previous month
 			if(showLabels && x < 12) {
-				let nextMonthXOffset = axisWidth*(daysIntoYear(curDate)/yearLengthDays);
+				let nextMonthXOffset = axisWidth*(daysIntoYear(curDate)/GC.yearLengthDays);
 				const textXPos = ( x == 11 ? (xOffset+axisWidth)/2 : (xOffset+nextMonthXOffset)/2) - 3;
 				const textYPos = (axisHeight/2) + 4.5;
 				//console.log(`textXPos=${textXPos}, textYPos=${textYPos}`);

@@ -9,6 +9,7 @@ import {
 } from '../CommonTypes';
 import { daysIntoYear } from '../Utility';
 import drawTimeAxisMarkersOnCanvas from './drawTimeAxisMarkersOnCanvas';
+import * as GC from '../GlobalConstants';
 
 export default function PlantTimelineChart(
 	props:{
@@ -23,7 +24,6 @@ export default function PlantTimelineChart(
 		if(chartRef.current == undefined) {
 			return;
 		}
-		const yearLengthDays = 365;
 		//console.log('use effect');
 		let chartContext = chartRef.current.getContext('2d');
 		if(chartContext != undefined) {
@@ -41,8 +41,8 @@ export default function PlantTimelineChart(
 			const plantStartDay = daysIntoYear(plantingPeriod.plantStartDate);
 			const plantEndDay = daysIntoYear(plantingPeriod.plantEndDate);
 			//console.log(`plantStartDay=${plantStartDay}, plantEndDay=${plantEndDay}`);
-			const plantStartX = props.chartWidth*(plantStartDay/yearLengthDays);
-			const plantBarWidth = (props.chartWidth*(plantEndDay/yearLengthDays)) - plantStartX;
+			const plantStartX = props.chartWidth*(plantStartDay/GC.yearLengthDays);
+			const plantBarWidth = (props.chartWidth*(plantEndDay/GC.yearLengthDays)) - plantStartX;
 			if(chartContext != undefined) {
 				chartContext.fillStyle = '#0e0';
 				chartContext.fillRect(plantStartX, 0, plantBarWidth, props.chartHeight);
@@ -50,8 +50,8 @@ export default function PlantTimelineChart(
 			//draw harvest period
 			const harvestStartDay = daysIntoYear(plantingPeriod.harvestStartDate);
 			const harvestEndDay = daysIntoYear(plantingPeriod.harvestEndDate);
-			const harvestStartX = props.chartWidth*(harvestStartDay/yearLengthDays);
-			const harvestBarWidth = (props.chartWidth*(harvestEndDay/yearLengthDays)) - harvestStartX;
+			const harvestStartX = props.chartWidth*(harvestStartDay/GC.yearLengthDays);
+			const harvestBarWidth = (props.chartWidth*(harvestEndDay/GC.yearLengthDays)) - harvestStartX;
 			//console.log(`harvestStartDay=${harvestStartDay}, harvestEndDay=${harvestEndDay}`);
 			if(chartContext != undefined) {
 				chartContext.fillStyle = '#ed3';
@@ -60,14 +60,14 @@ export default function PlantTimelineChart(
 			//draw overlap period, if any 
 			if(plantEndDay > harvestStartDay) {
 				if(chartContext != undefined) {
-					const overlapBarWidth = (props.chartWidth*(plantEndDay/yearLengthDays)) - harvestStartX;
+					const overlapBarWidth = (props.chartWidth*(plantEndDay/GC.yearLengthDays)) - harvestStartX;
 					chartContext.fillStyle = '#589';
 					chartContext.fillRect(harvestStartX, 0, overlapBarWidth, props.chartHeight);
 				}
 			}
 		});
 		if(chartContext != undefined) {
-			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, yearLengthDays, false, '#999');
+			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, false, '#999');
 		}
 		//console.dir(chartContext);
 	}, [chartRef]);

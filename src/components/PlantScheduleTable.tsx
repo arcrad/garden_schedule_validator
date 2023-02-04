@@ -7,6 +7,7 @@ import {
 	PlantScheduleEntry,
 	PlantSchedule
 } from '../CommonTypes';
+import * as GC from '../GlobalConstants';
 import PlantTimelineAxis from './PlantTimelineAxis';
 import PlantScheduleTableRows from './PlantScheduleTableRows';
 
@@ -26,7 +27,7 @@ export default function PlantScheduleTable(props:{
 			<tbody>
 				<tr>
 					<td colSpan={2}>Months</td>
-					<td><PlantTimelineAxis axisWidth={500} axisHeight={30}/></td>
+					<td><PlantTimelineAxis axisWidth={GC.chartWidth} axisHeight={GC.timeAxisHeight}/></td>
 				</tr>
 				<PlantScheduleTableRows plantSchedule={props.plantSchedule} plantData={props.plantData}/>
 			</tbody>

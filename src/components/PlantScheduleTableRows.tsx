@@ -7,6 +7,7 @@ import {
 	PlantScheduleEntry,
 	PlantSchedule
 } from '../CommonTypes';
+import * as GC from '../GlobalConstants';
 import SquareFeetUsedPerMonthChart from './SquareFeetUsedPerMonthChart';
 import PlantTimelineChart from './PlantTimelineChart';
 
@@ -35,8 +36,8 @@ export default function PlantScheduleTableRows(props:{
 								plantSchedule = {props.plantSchedule}
 								plantData = {props.plantData}
 								groupToShow = {i}
-								chartWidth = {500}
-								chartHeight = {20}
+								chartWidth = {GC.chartWidth}
+								chartHeight = {GC.SFUPMChartHeight}
 							/>
 						</td>
 					</tr>
@@ -50,8 +51,8 @@ export default function PlantScheduleTableRows(props:{
 							<PlantTimelineChart
 								plant={props.plantData[plantScheduleEntry.plantId]}
 								plantScheduleEntry={plantScheduleEntry}
-								chartWidth={500}
-								chartHeight={30}
+								chartWidth={GC.chartWidth}
+								chartHeight={GC.chartHeight}
 							/>
 						</td>
 					</tr>

@@ -23,7 +23,6 @@ export default function SquareFeetUsedPerMonthChart(
 		if(chartRef.current == undefined) {
 			return;
 		}
-		const yearLengthDays = 365;
 		//console.log('use effect');
 		let chartContext = chartRef.current.getContext('2d');
 		if(chartContext != undefined) {
@@ -56,7 +55,7 @@ export default function SquareFeetUsedPerMonthChart(
 			//console.dir(plantsInGroup);
 			let customLabels = squareFeetPerMonth.map( val => String(val));
 			console.dir(customLabels);
-			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, yearLengthDays, true, '#999', customLabels);
+			drawTimeAxisMarkersOnCanvas(chartContext, props.chartWidth, props.chartHeight, true, '#999', customLabels);
 		}
 	}, [chartRef]);
 	return (
