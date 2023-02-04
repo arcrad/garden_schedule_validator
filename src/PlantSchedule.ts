@@ -79,24 +79,6 @@ const plantSchedule:PlantSchedule = [
 		activePeriods: [0]
 	},
 	{
-		plantId: 'Winter Squash',
-		groupId: 2,
-		squareFeetPlanted: 8,
-		notes: 'Butternut'
-	},
-	{
-		plantId: 'Peanut',
-		groupId: 2,
-		squareFeetPlanted: 25
-	},
-	{
-		plantId: 'Radish',
-		groupId: 2,
-		squareFeetPlanted: 12,
-		notes: 'Daikon',
-		activePeriods: [1]
-	},
-	{
 		plantId: 'Collards',
 		groupId: 2,
 		squareFeetPlanted: 7,
@@ -119,6 +101,24 @@ const plantSchedule:PlantSchedule = [
 		groupId: 2,
 		squareFeetPlanted: 4,
 		activePeriods: [0]
+	},
+	{
+		plantId: 'Winter Squash',
+		groupId: 2,
+		squareFeetPlanted: 8,
+		notes: 'Butternut'
+	},
+	{
+		plantId: 'Peanut',
+		groupId: 2,
+		squareFeetPlanted: 25
+	},
+	{
+		plantId: 'Radish',
+		groupId: 2,
+		squareFeetPlanted: 12,
+		notes: 'Daikon',
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -186,6 +186,20 @@ const plantSchedule:PlantSchedule = [
 		activePeriods: [0]
 	},
 	{
+		plantId: 'Carrots',
+		groupId: 4,
+		squareFeetPlanted: 13,
+		notes: 'Salsify',
+		activePeriods: [0]
+	},
+	{
+		plantId: 'Mustard',
+		groupId: 4,
+		squareFeetPlanted: 10,
+		notes: 'Komatsuna',
+		activePeriods: [0]
+	},
+	{
 		plantId: 'Mustard',
 		groupId: 4,
 		squareFeetPlanted: 4,
@@ -203,20 +217,6 @@ const plantSchedule:PlantSchedule = [
 		groupId: 4,
 		squareFeetPlanted: 8,
 		activePeriods: [1]
-	},
-	{
-		plantId: 'Carrots',
-		groupId: 4,
-		squareFeetPlanted: 13,
-		notes: 'Salsify',
-		activePeriods: [0]
-	},
-	{
-		plantId: 'Mustard',
-		groupId: 4,
-		squareFeetPlanted: 10,
-		notes: 'Komatsuna',
-		activePeriods: [0]
 	},
 	/////
 	{
@@ -263,7 +263,8 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Cauliflower',
 		groupId: 6,
-		squareFeetPlanted: 20
+		squareFeetPlanted: 20,
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Cabbage',
@@ -462,13 +463,8 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Spinach',
 		groupId: 17,
 		squareFeetPlanted: 5,
-		notes: 'New Zealand Spinach'
-	},
-	{
-		plantId: 'Spinach',
-		groupId: 17,
-		squareFeetPlanted: 5,
-		activePeriods: [1]
+		notes: 'New Zealand Spinach',
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Beets',
@@ -478,6 +474,12 @@ const plantSchedule:PlantSchedule = [
 	},
 	{
 		plantId: 'Chinese Cabbage',
+		groupId: 17,
+		squareFeetPlanted: 5,
+		activePeriods: [1]
+	},
+	{
+		plantId: 'Spinach',
 		groupId: 17,
 		squareFeetPlanted: 5,
 		activePeriods: [1]
