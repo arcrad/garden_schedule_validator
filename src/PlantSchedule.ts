@@ -268,7 +268,8 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Cabbage',
 		groupId: 6,
-		squareFeetPlanted: 10
+		squareFeetPlanted: 10,
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Brussels Sprouts',
@@ -279,7 +280,8 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Mustard',
 		groupId: 6,
 		squareFeetPlanted: 10,
-		notes: 'Chijmsiam Mustard'
+		notes: 'Chijmsiam Mustard',
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -359,12 +361,12 @@ const plantSchedule:PlantSchedule = [
 		squareFeetPlanted: 4,
 		notes: 'Paste'
 	},
-	{
+	/*{
 		plantId: 'Peppers',
 		groupId: 12,
 		squareFeetPlanted: 21,
 		notes: 'Fish'
-	},
+	},*/
 	{
 		plantId: 'Pole Beans',
 		groupId: 12,
@@ -374,7 +376,8 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Broccoli',
 		groupId: 12,
-		squareFeetPlanted: 18
+		squareFeetPlanted: 18,
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -385,7 +388,7 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Peanut',
 		groupId: 13,
-		squareFeetPlanted: 18
+		squareFeetPlanted: 5
 	},
 	/////
 	{
@@ -422,7 +425,7 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Tatsoi',
 		groupId: 15,
 		squareFeetPlanted: 25,
-		notes: 'Fall' 
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -439,7 +442,8 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Chinese Cabbage',
 		groupId: 16,
 		squareFeetPlanted: 25,
-		notes: 'Yukina Savoy'
+		notes: 'Yukina Savoy',
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -464,16 +468,19 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Spinach',
 		groupId: 17,
 		squareFeetPlanted: 5,
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Beets',
 		groupId: 17,
-		squareFeetPlanted: 5
+		squareFeetPlanted: 5,
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Chinese Cabbage',
 		groupId: 17,
-		squareFeetPlanted: 5
+		squareFeetPlanted: 5,
+		activePeriods: [1]
 	},
 	/////
 	{
@@ -498,13 +505,15 @@ const plantSchedule:PlantSchedule = [
 		plantId: 'Chinese Cabbage',
 		groupId: 19,
 		squareFeetPlanted: 24,
-		notes: 'Yukina Savoy'
+		notes: 'Yukina Savoy',
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Mustard',
 		groupId: 19,
 		squareFeetPlanted: 4,
-		notes: 'Mizuna'
+		notes: 'Mizuna',
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Chinese Cabbage',
@@ -538,51 +547,60 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Broccoli',
 		groupId: 20,
-		squareFeetPlanted: 10
+		squareFeetPlanted: 10,
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Mustard',
 		groupId: 20,
-		squareFeetPlanted: 10,
-		notes: 'Komatsuna'
+		squareFeetPlanted: 15,
+		notes: 'Komatsuna',
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Lettuce, Head',
 		groupId: 20,
-		squareFeetPlanted: 6
+		squareFeetPlanted: 6,
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Mustard',
 		groupId: 20,
-		squareFeetPlanted: 12,
-		notes: 'Mizuna'
+		squareFeetPlanted: 2,
+		notes: 'Mizuna',
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Spinach',
 		groupId: 20,
-		squareFeetPlanted: 24
+		squareFeetPlanted: 24,
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Carrots',
 		groupId: 20,
-		squareFeetPlanted: 7
+		squareFeetPlanted: 7,
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Radish',
 		groupId: 20,
 		squareFeetPlanted: 5,
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Mustard',
 		groupId: 20,
 		squareFeetPlanted: 7,
-		notes: 'Chijmsiam Mustard'
+		notes: 'Chijmsiam Mustard',
+		activePeriods: [1]
 	},
 	{
 		plantId: 'Collards',
 		groupId: 20,
 		squareFeetPlanted: 7,
-		notes: 'Kale' 
+		notes: 'Kale', 
+		activePeriods: [1]
 	}
 ];
 
