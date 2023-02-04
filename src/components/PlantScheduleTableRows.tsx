@@ -46,7 +46,16 @@ export default function PlantScheduleTableRows(props:{
 				return (
 					<tr key={'pse'+i}>
 						{ i == 0 && <td rowSpan={allSchedulesInGroup.length}>{plantScheduleEntry.groupId}</td> }
-						<td>{props.plantData[plantScheduleEntry.plantId].name} ({plantScheduleEntry.squareFeetPlanted})<br/>{plantScheduleEntry.notes && <i>({plantScheduleEntry.notes})</i>}</td>
+						<td>
+							<span className='plantName'>
+								{props.plantData[plantScheduleEntry.plantId].name}
+							</span><br/>
+							<span className='plantSubText'>
+								{plantScheduleEntry.squareFeetPlanted} sq. ft.
+								{plantScheduleEntry.notes && <i> — {plantScheduleEntry.notes}</i>}
+								{plantScheduleEntry.activePeriods != null ? (<i> — activePeriods: [{plantScheduleEntry.activePeriods.join(',')}]</i>) : ''}
+							</span>
+						</td>
 						<td>
 							<PlantTimelineChart
 								plant={props.plantData[plantScheduleEntry.plantId]}
