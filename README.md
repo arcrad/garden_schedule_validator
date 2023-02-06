@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# Plant Schedule Validator
+
+This script takes plant schedule information and displays it in groups (beds/plots) showing a planting/harvest timeline for each plant. Along the time-axis, a summation of how many square feet is currently planted is displayed per month. This allows you to validate utilization of your garden per bed/plot. 
+
+PlantSchedule.ts contains plant schedule data. PlantData.ts contains the data for each plant. The current information is mostly taken from the Virginia Extension Office data for USDA Hardiness Zone 7a. The type information can be gleaned from CommonTypes.ts. 
+
+# Create React App Specific
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
