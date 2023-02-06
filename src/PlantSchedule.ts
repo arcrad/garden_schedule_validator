@@ -34,8 +34,7 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Malabar Spinach',
 		groupId: 0,
-		squareFeetPlanted: 6,
-		activePeriods: [1]
+		squareFeetPlanted: 6
 	},
 	{
 		plantId: 'Chinese Broccoli',
@@ -109,9 +108,15 @@ const plantSchedule:PlantSchedule = [
 		notes: 'Butternut'
 	},
 	{
-		plantId: 'Peanut',
+		plantId: 'Eggplant',
 		groupId: 2,
-		squareFeetPlanted: 25
+		squareFeetPlanted: 10
+	},
+	{
+		plantId: 'Peppers',
+		groupId: 2,
+		squareFeetPlanted: 10,
+		notes: 'Lemon'
 	},
 	{
 		plantId: 'Radish',
@@ -144,24 +149,17 @@ const plantSchedule:PlantSchedule = [
 		notes: 'Curshaw'
 	},
 	{
-		plantId: 'Eggplant',
+		plantId: 'Peanut',
 		groupId: 3,
-		squareFeetPlanted: 10
-	},
-	{
-		plantId: 'Peppers',
-		groupId: 3,
-		squareFeetPlanted: 10,
-		notes: 'Lemon'
+		squareFeetPlanted: 25
 	},
 	{
 		plantId: 'Malabar Spinach',
 		groupId: 3,
-		squareFeetPlanted: 3,
-		activePeriods: [1]
+		squareFeetPlanted: 3
 	},
 	{
-		plantId: 'Rutabega',
+		plantId: 'Rutabaga',
 		groupId: 3,
 		squareFeetPlanted: 15
 	},
@@ -520,7 +518,8 @@ const plantSchedule:PlantSchedule = [
 	{
 		plantId: 'Chinese Cabbage',
 		groupId: 19,
-		squareFeetPlanted: 2
+		squareFeetPlanted: 2,
+		activePeriods: [0]
 	},
 	{
 		plantId: 'Summer Squash',
