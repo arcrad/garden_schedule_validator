@@ -1,10 +1,10 @@
 # Plant Schedule Validator
 
-This script takes plant schedule information and displays it in groups (beds/plots) showing a planting/harvest timeline for each plant. Along the time-axis, a summation of how many square feet is currently planted is displayed per month. This allows you to validate utilization of your garden per bed/plot. 
+This script takes plant schedule information and displays it in groups (beds/plots) showing a planting/harvest timeline for each plant. Along the time-axis, a monthly summation of how many square feet are currently planted is displayed. This allows you to validate utilization of your garden per bed/plot. 
 
-PlantSchedule.ts contains plant schedule data. PlantData.ts contains the data for each plant. The current information is mostly taken from the Virginia Extension Office data for USDA Hardiness Zone 7a. The type information can be gleaned from CommonTypes.ts. 
+**PlantSchedule.ts** contains the overall plant schedule data. **PlantData.ts** contains the reference data for each plant. The current plant data information is mostly taken from the Virginia Extension Office for USDA Hardiness Zone 7a. The data structure format/types can be gleaned from CommonTypes.ts. 
 
-# Create React App Specific
+# Create React App Specific Bits
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
