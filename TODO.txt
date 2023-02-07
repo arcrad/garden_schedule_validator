@@ -5,6 +5,15 @@
 -add functionality to sum and display sq. ft. used over time (possibly highlight overages)
 	+add functionality to store max sq. ft. of each bed 
 		+add functionality to highlight offending months
+-add all plant schedule data 
 
-+add all plant schedule data 
+
+--way past scope creep items--
+--probably better to just implement in a separate better app 
++make UI for adding/removing plants/groups
++make UI for managing plant data 
++add sorting functionality 
++add functionality to select slices of planting periods, per plant, to optimize the overlap calculations
++make chart layout responsive
++add hover tooltips 
 
