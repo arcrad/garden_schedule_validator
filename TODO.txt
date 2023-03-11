@@ -17,3 +17,7 @@
 +make chart layout responsive
 +add hover tooltips 
 
+--probably wont do, but nice to keep on backlog--
++setup basic test coverage
++add traffic monitoring
++host somewhere
